@@ -54,6 +54,7 @@ class Description:
             Description.__instance = self
             self.img_desc = dict()
             self.desc = list()
+            self.max_length = 0
             self.tokenizer = self.__tokenize()
 
     def __read_file(self):
@@ -79,11 +80,16 @@ class Description:
         tokenizer.fit_on_texts(self.desc)
         for file, desc in self.img_desc.items():
             self.img_desc[file] = tokenizer.texts_to_sequences(desc)
+            # length of the longest description for this picture
+            maxlen = len(max(self.img_desc[file], key=len))
+            if maxlen > self.max_length:
+                self.max_length = maxlen
         return tokenizer
 
 
 if __name__ == '__main__':
 
     description_handler = Description.get_instance()
+    print(description_handler.max_length)
 
 
