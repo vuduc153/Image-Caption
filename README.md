@@ -33,9 +33,3 @@ The grammar is not exactly correct due to lemmatization
 The model fails to return a proper result because it doesn't have the word "computer games" in its vocabuary and therefore cannot understand the context of the image.
 
 ![Screenshot from 2020-03-01 15-05-25](https://user-images.githubusercontent.com/37239826/75620730-bfa76d00-5bcf-11ea-8c14-8a7c2244af9d.png)
-
-## Deployment
-
-A web app for a quick demonstration of the result is available at:
-
-http://imagecaptioning.herokuapp.com/
